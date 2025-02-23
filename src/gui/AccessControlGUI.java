@@ -27,13 +27,13 @@ public class AccessControlGUI {
         JPanel inputPanel = new JPanel(new GridLayout(4, 2, 5, 5));
         JPanel buttonPanel = new JPanel(new GridLayout(2, 3, 5, 5));
 
-        JLabel cardIdLabel = new JLabel("Card ID:");
+        JLabel cardIdLabel = new JLabel("Card ID : ");
         cardIdField = new JTextField();
 
-        JLabel accessLabel = new JLabel("Access Levels : (Low,Room101)");
+        JLabel accessLabel = new JLabel("Access Levels (Low,Room101) : ");
         accessField = new JTextField();
 
-        JLabel daysLabel = new JLabel("Valid for (days):");
+        JLabel daysLabel = new JLabel("Valid for (days): ");
         daysField = new JTextField();
 
         JButton addButton = new JButton("Add");
