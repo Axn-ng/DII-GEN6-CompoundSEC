@@ -7,30 +7,30 @@ import java.util.List;
 public class AuditTrail {
     private static List<String> logs = new ArrayList<>();
 
-    public static void logAccess(String cardId, String location, boolean success) {
-        String log = LocalDateTime.now() + " - Card: " + cardId + " tried to access " + location + " - " + (success ? "GRANTED" : "DENIED");
+    // ฟังก์ชันบันทึกการเข้าถึง
+    public static void logAccess(String cardId, List<String> locations, boolean success) {
+        String log = LocalDateTime.now() + " - Card: " + cardId + " tried to access " + String.join(", ", locations)
+                + " - " + (success ? "GRANTED" : "DENIED");
         logs.add(log);
         System.out.println(log);  // แสดงผลใน Console ด้วย
     }
 
+    // ฟังก์ชันบันทึกการเพิ่ม/แก้ไขบัตร
     public static void logModification(String action, String cardId) {
         String log = LocalDateTime.now() + " - Card " + cardId + " was " + action;
         logs.add(log);
         System.out.println(log);  // แสดงผลใน Console ด้วย
     }
 
-    public static List<String> getLogs() {
-        return logs;
+    // ฟังก์ชันบันทึกการเพิกถอนบัตร
+    public static void logAction(String action, String cardId) {
+        String log = LocalDateTime.now() + " - Action: " + action + " performed on Card: " + cardId;
+        logs.add(log);
+        System.out.println(log);  // แสดงผลใน Console ด้วย
     }
 
-    public static void showLogs() {
-        if (logs.isEmpty()) {
-            System.out.println("No audit logs available.");
-        } else {
-            System.out.println("=== Audit Logs ===");
-            for (String log : logs) {
-                System.out.println(log);
-            }
-        }
+    // ฟังก์ชันดึงข้อมูลบันทึก
+    public static List<String> getLogs() {
+        return logs;
     }
 }
