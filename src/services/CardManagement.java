@@ -52,4 +52,8 @@ public class CardManagement {
     public static Map<String, AccessCard> getAllCards() {
         return cardDatabase;
     }
+
+    public static void addCard(String cardId, LocalDateTime localDateTime, List<String> accessLevels) {
+
+    }
 }
